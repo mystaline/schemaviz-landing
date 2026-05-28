@@ -1,7 +1,9 @@
+import Hero from "@/components/Hero";
+
 export default function Home() {
   return (
     <main>
-      <p className="text-primary-400 p-8 font-mono">// scaffold ok</p>
+      <Hero />
     </main>
   );
 }
