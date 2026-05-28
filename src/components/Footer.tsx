@@ -55,7 +55,7 @@ export default function Footer() {
           </a>
           <button
             onClick={handleReport}
-            className="text-secondary-400 text-sm hover:text-secondary-50 transition-colors bg-none border-none cursor-pointer p-0"
+            className="text-secondary-400 text-sm hover:text-secondary-50 transition-colors bg-transparent border-0 cursor-pointer p-0"
           >
             Report an Issue
           </button>
