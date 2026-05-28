@@ -53,7 +53,13 @@ const redirectGuardScript = `(function(){
   var host=window.location.hostname;
   if(params.has("embed")){window.location.replace(APP+"?embed");return;}
   if(hash.indexOf("#data=")===0){window.location.replace(APP+hash);return;}
-  if(host==="schemavis.mystaline.dev"){document.documentElement.style.visibility="hidden";return;}
+  if(host==="schemavis.mystaline.dev"){
+    document.documentElement.style.visibility="hidden";
+    if("serviceWorker" in navigator){
+      navigator.serviceWorker.register("/sw.js").catch(function(){});
+    }
+    return;
+  }
   try{
     var raw=localStorage.getItem("db_schema_visualizer");
     var mg=localStorage.getItem("schemaviz_migrated");
