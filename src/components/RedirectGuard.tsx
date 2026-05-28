@@ -9,7 +9,7 @@ const OLD_HOST = "schemavis.mystaline.dev";
 
 async function encodeSchema(raw: string): Promise<string> {
   const parsed = JSON.parse(raw);
-  const payload = JSON.stringify({ ...parsed, p: "full" });
+  const payload = JSON.stringify({ ...parsed, p: "full", m: 1 });
   const stream = new Blob([payload]).stream().pipeThrough(new CompressionStream("gzip"));
   const buf = await new Response(stream).arrayBuffer();
   const bytes = new Uint8Array(buf);
