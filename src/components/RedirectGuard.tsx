@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const APP_URL = "https://app.schemaviz.mystaline.dev";
 const LS_KEY = "db_schema_visualizer";
@@ -18,8 +18,6 @@ async function encodeSchema(raw: string): Promise<string> {
 }
 
 export default function RedirectGuard({ children }: { children: React.ReactNode }) {
-  const [ready, setReady] = useState(false);
-
   useEffect(() => {
     const search = window.location.search;
     const hash = window.location.hash;
@@ -43,13 +41,10 @@ export default function RedirectGuard({ children }: { children: React.ReactNode 
           localStorage.setItem(MIGRATED_KEY, "1");
           window.location.replace(`${APP_URL}#data=${encoded}`);
         })
-        .catch(() => setReady(true));
+        .catch(() => {});
       return;
     }
-
-    setReady(true);
   }, []);
 
-  if (!ready) return null;
   return <>{children}</>;
 }
