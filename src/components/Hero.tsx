@@ -21,7 +21,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-row gap-4">
           <a
-            href="https://schemaviz.mystaline.dev"
+            href="https://app.schemaviz.mystaline.dev"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary-500 hover:bg-primary-600 text-white font-bold px-6 py-3 rounded-xl transition-colors"

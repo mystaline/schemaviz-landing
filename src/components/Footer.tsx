@@ -40,7 +40,7 @@ export default function Footer() {
 
         <div className="flex flex-row items-center gap-4">
           <a
-            href="https://schemaviz.mystaline.dev"
+            href="https://app.schemaviz.mystaline.dev"
             className="text-secondary-400 text-sm hover:text-secondary-50 transition-colors"
           >
             Open App
