@@ -51,7 +51,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-secondary-400 text-sm hover:text-secondary-50 transition-colors"
           >
-            GitHub
+            ★ Star on GitHub
           </a>
           <button
             onClick={handleReport}

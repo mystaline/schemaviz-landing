@@ -34,7 +34,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="border border-secondary-600 text-secondary-400 hover:text-secondary-50 font-bold px-6 py-3 rounded-xl transition-colors"
           >
-            View on GitHub
+            ★ Star on GitHub
           </a>
         </div>
         <div className="flex flex-wrap gap-2 mt-10">
