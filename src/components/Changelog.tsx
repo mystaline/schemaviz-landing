@@ -1,19 +1,31 @@
-import { CHANGELOG } from "@/data/changelog";
+import { CHANGELOG, groupByDate } from "@/data/changelog";
+
+const badgeClass: Record<string, string> = {
+  new: "bg-primary-500/15 text-primary-400 border border-primary-500/30",
+  improved: "bg-warning-400/15 text-warning-400 border border-warning-400/30",
+  fix: "bg-success-500/15 text-success-500 border border-success-500/30",
+};
+
+const badgeLabel: Record<string, string> = {
+  new: "New",
+  improved: "Update",
+  fix: "Patch",
+};
+
+const itemTypeClass: Record<string, string> = {
+  feature: "text-primary-400",
+  improvement: "text-warning-400",
+  fix: "text-success-500",
+};
+
+const itemTypeLabel: Record<string, string> = {
+  feature: "feat",
+  improvement: "impr",
+  fix: "fix",
+};
 
 export default function Changelog() {
-  const getBadgeClass = (badge: string) => {
-    const baseClass = "text-xs font-mono px-2 py-0.5 rounded-full";
-    switch (badge) {
-      case "new":
-        return `${baseClass} bg-success-500/15 text-success-500 border border-success-500/30`;
-      case "improved":
-        return `${baseClass} bg-warning-400/15 text-warning-400 border border-warning-400/30`;
-      case "fix":
-        return `${baseClass} bg-danger-500/15 text-danger-500 border border-danger-500/30`;
-      default:
-        return baseClass;
-    }
-  };
+  const grouped = groupByDate(CHANGELOG);
 
   return (
     <section className="py-24 px-6 bg-secondary-900">
@@ -22,29 +34,42 @@ export default function Changelog() {
         <h2 className="text-4xl font-black tracking-tight text-secondary-50 mb-12">
           Actively developed.
         </h2>
-        <div className="space-y-10">
-          {CHANGELOG.map((entry) => (
+        <div className="space-y-8">
+          {grouped.map((entry, idx) => (
             <div
-              key={entry.version}
-              className="border-l-2 border-secondary-700 pl-6"
+              key={entry.date}
+              className="border-l-2 border-secondary-700 pl-6 relative"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono font-bold text-secondary-50">
+              {/* Latest dot */}
+              {idx === 0 && (
+                <span className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-primary-400 shadow-md shadow-primary-500/50 animate-pulse" />
+              )}
+
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-mono font-black text-secondary-100">
                   v{entry.version}
                 </span>
                 {entry.badge && (
-                  <span className={getBadgeClass(entry.badge)}>
-                    {entry.badge}
+                  <span className={`text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded font-mono ${badgeClass[entry.badge]}`}>
+                    {badgeLabel[entry.badge]}
                   </span>
                 )}
-                <span className="font-mono text-xs text-secondary-400">
+                <span className="font-mono text-xs text-secondary-500">
                   {entry.date}
                 </span>
               </div>
-              <ul className="space-y-1 mt-2">
+
+              {/* Items */}
+              <ul className="space-y-2">
                 {entry.items.map((item, i) => (
-                  <li key={i} className="text-sm text-secondary-400">
-                    · {item.text}
+                  <li key={i} className="flex items-start gap-2.5 text-sm">
+                    <span className={`font-mono text-[10px] font-black uppercase tracking-wider shrink-0 mt-0.5 ${itemTypeClass[item.type]}`}>
+                      {itemTypeLabel[item.type]}
+                    </span>
+                    <span className={idx === 0 ? "text-secondary-200" : "text-secondary-400"}>
+                      {item.text}
+                    </span>
                   </li>
                 ))}
               </ul>
