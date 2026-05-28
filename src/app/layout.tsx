@@ -6,7 +6,7 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "Schema Vis — PostgreSQL Schema Design Tool",
+  title: "Schema Viz — PostgreSQL Schema Design Tool",
   description:
     "Design PostgreSQL schemas visually. Tables, relations, indexes, and SQL export — all in the browser. Free, no login required.",
   metadataBase: new URL("https://schemaviz.mystaline.dev"),
@@ -18,17 +18,17 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Schema Vis — PostgreSQL Schema Design Tool",
+    title: "Schema Viz — PostgreSQL Schema Design Tool",
     description:
       "Design PostgreSQL schemas visually. Tables, relations, indexes, and SQL export — all in the browser. Free, no login required.",
     url: "https://schemaviz.mystaline.dev",
-    siteName: "Schema Vis",
+    siteName: "Schema Viz",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Schema Vis — PostgreSQL Schema Design Tool",
+    title: "Schema Viz — PostgreSQL Schema Design Tool",
     description:
       "Design PostgreSQL schemas visually. Tables, relations, indexes, and SQL export — all in the browser. Free, no login required.",
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Schema Vis",
+  name: "Schema Viz",
   url: "https://app.schemaviz.mystaline.dev",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Web",

@@ -9,7 +9,7 @@ export default function LiveDemo() {
         <div className="border border-secondary-700 rounded-2xl overflow-hidden">
           <iframe
             src="https://app.schemaviz.mystaline.dev/?embed"
-            title="Schema Vis live demo"
+            title="Schema Viz live demo"
             className="w-full h-[400px] md:h-[600px]"
             style={{ border: "none" }}
           />

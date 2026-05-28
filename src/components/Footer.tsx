@@ -10,8 +10,8 @@ export default function Footer() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          source: "SchemaVis Landing",
-          subject: "[SchemaVis Landing] Quick Report",
+          source: "SchemaViz Landing",
+          subject: "[SchemaViz Landing] Quick Report",
           from_name: "Anonymous",
           message,
         }),
@@ -33,8 +33,10 @@ export default function Footer() {
         <div className="flex flex-row items-center gap-3">
           <div className="w-3 h-3 rounded-full bg-primary-500" />
           <div>
-            <p className="font-bold text-secondary-50">Schema Vis</p>
-            <p className="text-secondary-500 text-xs">PostgreSQL schema design tool</p>
+            <p className="font-bold text-secondary-50">Schema Viz</p>
+            <p className="text-secondary-500 text-xs">
+              PostgreSQL schema design tool
+            </p>
           </div>
         </div>
 
@@ -51,7 +53,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-secondary-400 text-sm hover:text-secondary-50 transition-colors"
           >
-            ★ Star on GitHub
+            View on GitHub
           </a>
           <button
             onClick={handleReport}
