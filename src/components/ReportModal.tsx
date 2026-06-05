@@ -69,7 +69,7 @@ export default function ReportModal({ isOpen, onClose }: Props) {
     const body = `Type: ${type}\n\n${message}\n\nReply to: ${email.trim() || "not provided"}`;
 
     try {
-      const res = await fetch(process.env.NEXT_PUBLIC_REPORT_WORKER_URL!, {
+      const res = await fetch(process.env.NEXT_PUBLIC_MAIL_WORKER_URL!, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
